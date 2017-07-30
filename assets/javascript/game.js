@@ -21,13 +21,21 @@ var reset = function() {
 document.onkeyup = function(event) {
 
 // Determines which key was pressed.
-var userGuess = event.key;
+var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 console.log(computerPick);
 
-if (userGuess === computerPick) {
+//Does not let you type non-letters
+//Regular exression, tests if userGuess is within A-Z.
+//i makes the search case insensitive
+if (/[A-Z]/i.test(userGuess) === false){
+	alert("Please type a letter!");
+}
+
+else if (userGuess === computerPick) {
 	win++;
 	reset();
+	alert("Congratulations! You're psychic!");
 }
 
 else {
