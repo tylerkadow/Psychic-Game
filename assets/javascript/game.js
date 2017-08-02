@@ -28,7 +28,7 @@ console.log(computerPick);
 //Does not let you type non-letters
 //Regular exression, tests if userGuess is within A-Z.
 //i makes the search case insensitive
-if (/[A-Z]/i.test(userGuess) === false){
+if (userGuess.length > 1 || !/[A-Z]/i.test(userGuess)){
 	alert("Please type a letter!");
 }
 
